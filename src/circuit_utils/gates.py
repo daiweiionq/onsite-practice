@@ -26,4 +26,12 @@ class Gate:
         return f'{self.name} on q{self.qubits}'
 
     def is_parametric(self) -> bool:
+        """Return True if this gate has a tunable angle.
+
+        >>> import math
+        >>> Gate('Rx', [0], angle=math.pi / 2).is_parametric()
+        True
+        >>> Gate('H', [0]).is_parametric()
+        False
+        """
         return self.angle is not None
