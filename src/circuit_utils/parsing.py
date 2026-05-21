@@ -7,13 +7,13 @@ from circuit_utils.gates import Gate
 logger = logging.getLogger(__name__)
 
 
-def parse_circuit(payload: str) -> Circuit:
+def parse_circuit_json(payload: str) -> Circuit:
     """Parse a JSON payload into a Circuit.
 
     The payload must have ``num_qubits`` and a list of ``gates``; ``name`` is
     optional. Each gate must have ``name`` and ``qubits``; ``angle`` is optional.
 
-    >>> c = parse_circuit('{"num_qubits": 2, "name": "bell", '
+    >>> c = parse_circuit_json('{"num_qubits": 2, "name": "bell", '
     ...                   '"gates": [{"name": "H", "qubits": [0]}, '
     ...                   '{"name": "CNOT", "qubits": [0, 1]}]}')
     >>> c.depth()
